@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace subject_cms.Models
 {
 
-    public enum SemsterType
+    public enum SemesterType
     {
         Exam,
 
@@ -17,15 +13,32 @@ namespace subject_cms.Models
 
     public class Semester
     {
+        public Semester()
+        {
+            Lectures = new Lesson();
+            Lectures.Type = LessonType.Lecture;
+
+            Practice = new Lesson();
+            Practice.Type = LessonType.Practice;
+
+            Laboratory = new Lesson();
+            Laboratory.Type = LessonType.Laboratory;
+        }
 
         //Somthing like "Осень 2016"
         public string Title { get; set; }
 
 
+        //public IEnumerable<Lesson> Lessons { get; set; }
+
         //Type and hours of different lesson types
-        public IEnumerable<Lesson> Lessons { get; set; }
+        public Lesson Lectures { get; set; }
+
+        public Lesson Practice { get; set; }
+
+        public Lesson Laboratory { get; set; }
 
 
-        public SemsterType Type { get; set; }
+        public SemesterType Type { get; set; }
     }
 }

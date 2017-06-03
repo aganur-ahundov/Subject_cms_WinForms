@@ -34,13 +34,13 @@
             this.semesterTypeLbl = new System.Windows.Forms.Label();
             this.f_semesterTypeCBox = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lecturesLbl = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.hoursLbl = new System.Windows.Forms.Label();
-            this.f_lectureHoursTxt = new System.Windows.Forms.TextBox();
-            this.fileAmountLbl = new System.Windows.Forms.Label();
             this.f_lectureFileAmountLbl = new System.Windows.Forms.Label();
+            this.fileAmountLbl = new System.Windows.Forms.Label();
+            this.f_lectureHoursTxt = new System.Windows.Forms.TextBox();
+            this.hoursLbl = new System.Windows.Forms.Label();
+            this.lecturesLbl = new System.Windows.Forms.Label();
+            this.addSemesterBtn = new System.Windows.Forms.Button();
+            this.cancelAddSemesterBtn = new System.Windows.Forms.Button();
             this.practiceLbl = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.f_practiceFileAmountLbl = new System.Windows.Forms.Label();
@@ -55,6 +55,9 @@
             this.f_laboratoryHoursTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.addLaboratoryFiles = new System.Windows.Forms.Button();
+            this.lectureClearBtn = new System.Windows.Forms.Button();
+            this.PracticeClearBtn = new System.Windows.Forms.Button();
+            this.LaboratoryClearBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -69,6 +72,7 @@
             this.lectureAddFiles.TabIndex = 0;
             this.lectureAddFiles.Text = "Add Files";
             this.lectureAddFiles.UseVisualStyleBackColor = true;
+            this.lectureAddFiles.Click += new System.EventHandler(this.lectureAddFiles_Click);
             // 
             // semesterTitleLbl
             // 
@@ -108,6 +112,7 @@
             // panel1
             // 
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.lectureClearBtn);
             this.panel1.Controls.Add(this.f_lectureFileAmountLbl);
             this.panel1.Controls.Add(this.fileAmountLbl);
             this.panel1.Controls.Add(this.f_lectureHoursTxt);
@@ -118,54 +123,15 @@
             this.panel1.Size = new System.Drawing.Size(492, 85);
             this.panel1.TabIndex = 5;
             // 
-            // lecturesLbl
+            // f_lectureFileAmountLbl
             // 
-            this.lecturesLbl.AutoSize = true;
-            this.lecturesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lecturesLbl.Location = new System.Drawing.Point(12, 95);
-            this.lecturesLbl.Name = "lecturesLbl";
-            this.lecturesLbl.Size = new System.Drawing.Size(79, 22);
-            this.lecturesLbl.TabIndex = 4;
-            this.lecturesLbl.Text = "Lectures";
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(421, 483);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 31);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(535, 483);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 31);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // hoursLbl
-            // 
-            this.hoursLbl.AutoSize = true;
-            this.hoursLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.hoursLbl.Location = new System.Drawing.Point(17, 13);
-            this.hoursLbl.Name = "hoursLbl";
-            this.hoursLbl.Size = new System.Drawing.Size(63, 22);
-            this.hoursLbl.TabIndex = 5;
-            this.hoursLbl.Text = "Hours:";
-            // 
-            // f_lectureHoursTxt
-            // 
-            this.f_lectureHoursTxt.Location = new System.Drawing.Point(86, 15);
-            this.f_lectureHoursTxt.Name = "f_lectureHoursTxt";
-            this.f_lectureHoursTxt.Size = new System.Drawing.Size(150, 20);
-            this.f_lectureHoursTxt.TabIndex = 6;
+            this.f_lectureFileAmountLbl.AutoSize = true;
+            this.f_lectureFileAmountLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.f_lectureFileAmountLbl.Location = new System.Drawing.Point(138, 53);
+            this.f_lectureFileAmountLbl.Name = "f_lectureFileAmountLbl";
+            this.f_lectureFileAmountLbl.Size = new System.Drawing.Size(16, 18);
+            this.f_lectureFileAmountLbl.TabIndex = 8;
+            this.f_lectureFileAmountLbl.Text = "0";
             // 
             // fileAmountLbl
             // 
@@ -177,15 +143,56 @@
             this.fileAmountLbl.TabIndex = 7;
             this.fileAmountLbl.Text = "File Amount: ";
             // 
-            // f_lectureFileAmountLbl
+            // f_lectureHoursTxt
             // 
-            this.f_lectureFileAmountLbl.AutoSize = true;
-            this.f_lectureFileAmountLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.f_lectureFileAmountLbl.Location = new System.Drawing.Point(138, 53);
-            this.f_lectureFileAmountLbl.Name = "f_lectureFileAmountLbl";
-            this.f_lectureFileAmountLbl.Size = new System.Drawing.Size(16, 18);
-            this.f_lectureFileAmountLbl.TabIndex = 8;
-            this.f_lectureFileAmountLbl.Text = "0";
+            this.f_lectureHoursTxt.Location = new System.Drawing.Point(86, 15);
+            this.f_lectureHoursTxt.Name = "f_lectureHoursTxt";
+            this.f_lectureHoursTxt.Size = new System.Drawing.Size(150, 20);
+            this.f_lectureHoursTxt.TabIndex = 6;
+            // 
+            // hoursLbl
+            // 
+            this.hoursLbl.AutoSize = true;
+            this.hoursLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.hoursLbl.Location = new System.Drawing.Point(17, 13);
+            this.hoursLbl.Name = "hoursLbl";
+            this.hoursLbl.Size = new System.Drawing.Size(63, 22);
+            this.hoursLbl.TabIndex = 5;
+            this.hoursLbl.Text = "Hours:";
+            // 
+            // lecturesLbl
+            // 
+            this.lecturesLbl.AutoSize = true;
+            this.lecturesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lecturesLbl.Location = new System.Drawing.Point(12, 95);
+            this.lecturesLbl.Name = "lecturesLbl";
+            this.lecturesLbl.Size = new System.Drawing.Size(79, 22);
+            this.lecturesLbl.TabIndex = 4;
+            this.lecturesLbl.Text = "Lectures";
+            // 
+            // addSemesterBtn
+            // 
+            this.addSemesterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addSemesterBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addSemesterBtn.Location = new System.Drawing.Point(421, 483);
+            this.addSemesterBtn.Name = "addSemesterBtn";
+            this.addSemesterBtn.Size = new System.Drawing.Size(108, 31);
+            this.addSemesterBtn.TabIndex = 5;
+            this.addSemesterBtn.Text = "Add";
+            this.addSemesterBtn.UseVisualStyleBackColor = true;
+            this.addSemesterBtn.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // cancelAddSemesterBtn
+            // 
+            this.cancelAddSemesterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelAddSemesterBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cancelAddSemesterBtn.Location = new System.Drawing.Point(535, 483);
+            this.cancelAddSemesterBtn.Name = "cancelAddSemesterBtn";
+            this.cancelAddSemesterBtn.Size = new System.Drawing.Size(108, 31);
+            this.cancelAddSemesterBtn.TabIndex = 6;
+            this.cancelAddSemesterBtn.Text = "Cancel";
+            this.cancelAddSemesterBtn.UseVisualStyleBackColor = true;
+            this.cancelAddSemesterBtn.Click += new System.EventHandler(this.button3_Click);
             // 
             // practiceLbl
             // 
@@ -200,6 +207,7 @@
             // panel2
             // 
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Controls.Add(this.PracticeClearBtn);
             this.panel2.Controls.Add(this.f_practiceFileAmountLbl);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.f_practiceHoursTxt);
@@ -256,6 +264,7 @@
             this.practiceAddFiles.TabIndex = 0;
             this.practiceAddFiles.Text = "Add Files";
             this.practiceAddFiles.UseVisualStyleBackColor = true;
+            this.practiceAddFiles.Click += new System.EventHandler(this.practiceAddFiles_Click);
             // 
             // LaboratoryLbl
             // 
@@ -270,6 +279,7 @@
             // panel3
             // 
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel3.Controls.Add(this.LaboratoryClearBtn);
             this.panel3.Controls.Add(this.f_laboratoryFileAmountLbl);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.f_laboratoryHoursTxt);
@@ -326,6 +336,40 @@
             this.addLaboratoryFiles.TabIndex = 0;
             this.addLaboratoryFiles.Text = "Add Files";
             this.addLaboratoryFiles.UseVisualStyleBackColor = true;
+            this.addLaboratoryFiles.Click += new System.EventHandler(this.addLaboratoryFiles_Click);
+            // 
+            // lectureClearBtn
+            // 
+            this.lectureClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lectureClearBtn.Location = new System.Drawing.Point(312, 45);
+            this.lectureClearBtn.Name = "lectureClearBtn";
+            this.lectureClearBtn.Size = new System.Drawing.Size(108, 31);
+            this.lectureClearBtn.TabIndex = 9;
+            this.lectureClearBtn.Text = "Clear";
+            this.lectureClearBtn.UseVisualStyleBackColor = true;
+            this.lectureClearBtn.Click += new System.EventHandler(this.lectureClearBtn_Click);
+            // 
+            // PracticeClearBtn
+            // 
+            this.PracticeClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PracticeClearBtn.Location = new System.Drawing.Point(312, 45);
+            this.PracticeClearBtn.Name = "PracticeClearBtn";
+            this.PracticeClearBtn.Size = new System.Drawing.Size(108, 31);
+            this.PracticeClearBtn.TabIndex = 10;
+            this.PracticeClearBtn.Text = "Clear";
+            this.PracticeClearBtn.UseVisualStyleBackColor = true;
+            this.PracticeClearBtn.Click += new System.EventHandler(this.PracticeClearBtn_Click);
+            // 
+            // LaboratoryClearBtn
+            // 
+            this.LaboratoryClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LaboratoryClearBtn.Location = new System.Drawing.Point(312, 45);
+            this.LaboratoryClearBtn.Name = "LaboratoryClearBtn";
+            this.LaboratoryClearBtn.Size = new System.Drawing.Size(108, 31);
+            this.LaboratoryClearBtn.TabIndex = 11;
+            this.LaboratoryClearBtn.Text = "Clear";
+            this.LaboratoryClearBtn.UseVisualStyleBackColor = true;
+            this.LaboratoryClearBtn.Click += new System.EventHandler(this.LaboratoryClearBtn_Click);
             // 
             // AddSemester
             // 
@@ -338,8 +382,8 @@
             this.Controls.Add(this.practiceLbl);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lecturesLbl);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.cancelAddSemesterBtn);
+            this.Controls.Add(this.addSemesterBtn);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.f_semesterTypeCBox);
             this.Controls.Add(this.semesterTypeLbl);
@@ -349,7 +393,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddSemester";
-            this.Text = "AddSemester";
+            this.Text = "Add Semester";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -374,8 +418,8 @@
         private System.Windows.Forms.Label fileAmountLbl;
         private System.Windows.Forms.TextBox f_lectureHoursTxt;
         private System.Windows.Forms.Label hoursLbl;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button addSemesterBtn;
+        private System.Windows.Forms.Button cancelAddSemesterBtn;
         private System.Windows.Forms.Label practiceLbl;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label f_practiceFileAmountLbl;
@@ -390,5 +434,8 @@
         private System.Windows.Forms.TextBox f_laboratoryHoursTxt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button addLaboratoryFiles;
+        private System.Windows.Forms.Button lectureClearBtn;
+        private System.Windows.Forms.Button PracticeClearBtn;
+        private System.Windows.Forms.Button LaboratoryClearBtn;
     }
 }

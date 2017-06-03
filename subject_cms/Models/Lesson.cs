@@ -23,5 +23,6 @@ namespace subject_cms.Models
 
         public short Hours { get; set; }
 
+        public List<FileContainer> Files = new List<FileContainer>();
      }
 }

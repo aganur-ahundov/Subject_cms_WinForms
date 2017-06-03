@@ -13,6 +13,6 @@ namespace subject_cms.Models
 
         public string TeacherName { get; set; }
         
-        public IEnumerable<Semester> Semesters { get; set; }  
+        public List<Semester> Semesters { get; set; }  
     }
 }

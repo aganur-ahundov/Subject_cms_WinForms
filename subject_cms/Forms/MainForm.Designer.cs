@@ -38,6 +38,9 @@
             this.f_semestersAmountLbl = new System.Windows.Forms.Label();
             this.f_teacherLbl = new System.Windows.Forms.Label();
             this.f_titleLbl = new System.Windows.Forms.Label();
+            this.removeSemester = new System.Windows.Forms.Button();
+            this.editSemester = new System.Windows.Forms.Button();
+            this.generateHtml = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // NewBtn
@@ -100,7 +103,7 @@
             this.f_semestersList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.f_semestersList.FormattingEnabled = true;
             this.f_semestersList.ItemHeight = 18;
-            this.f_semestersList.Location = new System.Drawing.Point(303, 50);
+            this.f_semestersList.Location = new System.Drawing.Point(279, 50);
             this.f_semestersList.Name = "f_semestersList";
             this.f_semestersList.Size = new System.Drawing.Size(230, 256);
             this.f_semestersList.TabIndex = 5;
@@ -110,7 +113,7 @@
             this.f_semestersListLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.f_semestersListLbl.AutoSize = true;
             this.f_semestersListLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.f_semestersListLbl.Location = new System.Drawing.Point(299, 25);
+            this.f_semestersListLbl.Location = new System.Drawing.Point(275, 25);
             this.f_semestersListLbl.Name = "f_semestersListLbl";
             this.f_semestersListLbl.Size = new System.Drawing.Size(138, 22);
             this.f_semestersListLbl.TabIndex = 6;
@@ -143,11 +146,50 @@
             this.f_titleLbl.Size = new System.Drawing.Size(0, 18);
             this.f_titleLbl.TabIndex = 9;
             // 
+            // removeSemester
+            // 
+            this.removeSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.removeSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.removeSemester.Location = new System.Drawing.Point(529, 82);
+            this.removeSemester.Name = "removeSemester";
+            this.removeSemester.Size = new System.Drawing.Size(120, 34);
+            this.removeSemester.TabIndex = 10;
+            this.removeSemester.Text = "Remove";
+            this.removeSemester.UseVisualStyleBackColor = true;
+            this.removeSemester.Click += new System.EventHandler(this.removeSemester_Click);
+            // 
+            // editSemester
+            // 
+            this.editSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.editSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editSemester.Location = new System.Drawing.Point(529, 122);
+            this.editSemester.Name = "editSemester";
+            this.editSemester.Size = new System.Drawing.Size(120, 34);
+            this.editSemester.TabIndex = 11;
+            this.editSemester.Text = "Edit";
+            this.editSemester.UseVisualStyleBackColor = true;
+            this.editSemester.Click += new System.EventHandler(this.editSemester_Click);
+            // 
+            // generateHtml
+            // 
+            this.generateHtml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.generateHtml.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.generateHtml.Location = new System.Drawing.Point(529, 272);
+            this.generateHtml.Name = "generateHtml";
+            this.generateHtml.Size = new System.Drawing.Size(120, 34);
+            this.generateHtml.TabIndex = 12;
+            this.generateHtml.Text = "Generate";
+            this.generateHtml.UseVisualStyleBackColor = true;
+            this.generateHtml.Click += new System.EventHandler(this.generateHtml_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 329);
+            this.ClientSize = new System.Drawing.Size(668, 329);
+            this.Controls.Add(this.generateHtml);
+            this.Controls.Add(this.editSemester);
+            this.Controls.Add(this.removeSemester);
             this.Controls.Add(this.f_titleLbl);
             this.Controls.Add(this.f_teacherLbl);
             this.Controls.Add(this.f_semestersAmountLbl);
@@ -177,6 +219,9 @@
         private System.Windows.Forms.Label f_semestersAmountLbl;
         private System.Windows.Forms.Label f_teacherLbl;
         private System.Windows.Forms.Label f_titleLbl;
+        private System.Windows.Forms.Button removeSemester;
+        private System.Windows.Forms.Button editSemester;
+        private System.Windows.Forms.Button generateHtml;
     }
 }
 
