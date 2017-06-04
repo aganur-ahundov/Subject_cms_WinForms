@@ -25,6 +25,7 @@ namespace subject_cms.Models
             Laboratory.Type = LessonType.Laboratory;
         }
 
+
         //Somthing like "Осень 2016"
         public string Title { get; set; }
 
@@ -40,5 +41,13 @@ namespace subject_cms.Models
 
 
         public SemesterType Type { get; set; }
+
+
+        public int LessonsHours {
+            get
+            {
+                return Lectures.Hours + Practice.Hours + Laboratory.Hours;
+            }
+        }
     }
 }

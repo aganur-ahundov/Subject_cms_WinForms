@@ -10,6 +10,8 @@ namespace subject_cms.Models
     {
         public FileInfo file;
 
+        public string Title { get; set; }
+
         //Is it for public access
         public bool IsAvailable { get; set; }
 

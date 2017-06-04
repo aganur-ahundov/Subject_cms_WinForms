@@ -113,11 +113,25 @@ namespace subject_cms
 
         private void generateHtml_Click( object sender, EventArgs e )
         {
+            if ( string.IsNullOrEmpty ( f_titleLbl.Text ) )
+            {
+                Messanger.Warning ( "First, you need to create subject" );
+                return;
+            }
+
+
+            if ( subject.Semesters.Count == 0 )
+            {
+                Messanger.Warning( "Semesters list is empty" );
+                return;
+            }
+
             FolderBrowserDialog folder = new FolderBrowserDialog();
             if ( folder.ShowDialog() == DialogResult.Cancel )
                 return;
 
-            HtmlGenerator html = new HtmlGenerator( folder.SelectedPath );
+            HtmlGenerator html = new HtmlGenerator( folder.SelectedPath, subject );
+            Messanger.Information ( "File generated successfully!" );
         }
     }
 }

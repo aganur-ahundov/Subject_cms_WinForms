@@ -42,12 +42,19 @@ namespace subject_cms.Forms
 
         private void addFileBtn_Click(object sender, EventArgs e)
         {
+            if ( string.IsNullOrEmpty( f_fileNameTxt.Text ) )
+            {
+                Messanger.Error( "Enter file's name!" );
+                return;
+            }
+
             if ( string.IsNullOrEmpty( f_filePathLbl.Text ) )
             {
                 Messanger.Error( "Need to choose file!" );
                 return;
             }
 
+            File.Title = f_fileNameTxt.Text;
             File.Description = f_fileDescriptionTxt.Text;
             File.IsAvailable = f_publicFileChBox.Checked;
             File.file = new FileInfo( f_filePathLbl.Text );

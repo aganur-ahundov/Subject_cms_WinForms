@@ -14,5 +14,15 @@ namespace subject_cms.Models
         public string TeacherName { get; set; }
         
         public List<Semester> Semesters { get; set; }  
+
+
+        public int GetTotalHours ()
+        {
+            int result = 0;
+            foreach ( Semester current in Semesters )
+                result += current.LessonsHours;
+
+            return result;
+        }
     }
 }

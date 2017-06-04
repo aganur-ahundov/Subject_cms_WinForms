@@ -36,6 +36,8 @@
             this.fileDescriptionLbl = new System.Windows.Forms.Label();
             this.addFileBtn = new System.Windows.Forms.Button();
             this.cancelAddBtn = new System.Windows.Forms.Button();
+            this.titleFileLbl = new System.Windows.Forms.Label();
+            this.f_fileNameTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // filePathLbl
@@ -50,8 +52,9 @@
             // 
             // chooseFilePathBtn
             // 
+            this.chooseFilePathBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chooseFilePathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chooseFilePathBtn.Location = new System.Drawing.Point(408, 19);
+            this.chooseFilePathBtn.Location = new System.Drawing.Point(566, 19);
             this.chooseFilePathBtn.Name = "chooseFilePathBtn";
             this.chooseFilePathBtn.Size = new System.Drawing.Size(103, 25);
             this.chooseFilePathBtn.TabIndex = 1;
@@ -61,20 +64,19 @@
             // 
             // f_fileDescriptionTxt
             // 
-            this.f_fileDescriptionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.f_fileDescriptionTxt.Location = new System.Drawing.Point(12, 108);
+            this.f_fileDescriptionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.f_fileDescriptionTxt.Location = new System.Drawing.Point(12, 152);
             this.f_fileDescriptionTxt.Multiline = true;
             this.f_fileDescriptionTxt.Name = "f_fileDescriptionTxt";
-            this.f_fileDescriptionTxt.Size = new System.Drawing.Size(509, 160);
+            this.f_fileDescriptionTxt.Size = new System.Drawing.Size(656, 158);
             this.f_fileDescriptionTxt.TabIndex = 2;
             // 
             // f_publicFileChBox
             // 
+            this.f_publicFileChBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.f_publicFileChBox.AutoSize = true;
             this.f_publicFileChBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.f_publicFileChBox.Location = new System.Drawing.Point(12, 58);
+            this.f_publicFileChBox.Location = new System.Drawing.Point(16, 93);
             this.f_publicFileChBox.Name = "f_publicFileChBox";
             this.f_publicFileChBox.Size = new System.Drawing.Size(67, 22);
             this.f_publicFileChBox.TabIndex = 3;
@@ -92,9 +94,10 @@
             // 
             // fileDescriptionLbl
             // 
+            this.fileDescriptionLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.fileDescriptionLbl.AutoSize = true;
             this.fileDescriptionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fileDescriptionLbl.Location = new System.Drawing.Point(8, 83);
+            this.fileDescriptionLbl.Location = new System.Drawing.Point(8, 127);
             this.fileDescriptionLbl.Name = "fileDescriptionLbl";
             this.fileDescriptionLbl.Size = new System.Drawing.Size(105, 22);
             this.fileDescriptionLbl.TabIndex = 5;
@@ -104,7 +107,7 @@
             // 
             this.addFileBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addFileBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addFileBtn.Location = new System.Drawing.Point(309, 283);
+            this.addFileBtn.Location = new System.Drawing.Point(456, 325);
             this.addFileBtn.Name = "addFileBtn";
             this.addFileBtn.Size = new System.Drawing.Size(103, 25);
             this.addFileBtn.TabIndex = 6;
@@ -116,7 +119,7 @@
             // 
             this.cancelAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelAddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelAddBtn.Location = new System.Drawing.Point(418, 283);
+            this.cancelAddBtn.Location = new System.Drawing.Point(565, 325);
             this.cancelAddBtn.Name = "cancelAddBtn";
             this.cancelAddBtn.Size = new System.Drawing.Size(103, 25);
             this.cancelAddBtn.TabIndex = 7;
@@ -124,12 +127,31 @@
             this.cancelAddBtn.UseVisualStyleBackColor = true;
             this.cancelAddBtn.Click += new System.EventHandler(this.cancelAddBtn_Click);
             // 
+            // titleFileLbl
+            // 
+            this.titleFileLbl.AutoSize = true;
+            this.titleFileLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.titleFileLbl.Location = new System.Drawing.Point(12, 55);
+            this.titleFileLbl.Name = "titleFileLbl";
+            this.titleFileLbl.Size = new System.Drawing.Size(67, 22);
+            this.titleFileLbl.TabIndex = 8;
+            this.titleFileLbl.Text = "Name: ";
+            // 
+            // f_fileNameTxt
+            // 
+            this.f_fileNameTxt.Location = new System.Drawing.Point(85, 57);
+            this.f_fileNameTxt.Name = "f_fileNameTxt";
+            this.f_fileNameTxt.Size = new System.Drawing.Size(166, 20);
+            this.f_fileNameTxt.TabIndex = 9;
+            // 
             // AddFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 320);
+            this.ClientSize = new System.Drawing.Size(680, 362);
             this.ControlBox = false;
+            this.Controls.Add(this.f_fileNameTxt);
+            this.Controls.Add(this.titleFileLbl);
             this.Controls.Add(this.cancelAddBtn);
             this.Controls.Add(this.addFileBtn);
             this.Controls.Add(this.fileDescriptionLbl);
@@ -158,5 +180,7 @@
         private System.Windows.Forms.Label fileDescriptionLbl;
         private System.Windows.Forms.Button addFileBtn;
         private System.Windows.Forms.Button cancelAddBtn;
+        private System.Windows.Forms.Label titleFileLbl;
+        private System.Windows.Forms.TextBox f_fileNameTxt;
     }
 }
