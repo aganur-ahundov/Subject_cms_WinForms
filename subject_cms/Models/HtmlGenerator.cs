@@ -14,18 +14,22 @@ namespace subject_cms.Models
     {
         private HtmlDocument index = new HtmlDocument();
         private Subject subject;
+        private string root;
         private string htmlFilePath;
         private string cssFilePath;
 
-        public HtmlGenerator( string _root, Subject _subject )
+
+        public HtmlGenerator( string _root, Subject _subject, AdditionalsConfigurations _config )
         {
             subject = _subject;
             htmlFilePath = _root + @"\index.html";
             cssFilePath = _root + @"\site.css";
-           
+            root = _root;
+
+            string path = AppDomain.CurrentDomain.BaseDirectory;
             //HERE NEED TO CHANGE STATIC FILE PATH
             File.Copy ( @"D:\VS17 Projects\subject_cms\subject_cms\subject_cms\html_templates\html_empty.html", htmlFilePath );
-            File.Copy ( @"D:\VS17 Projects\subject_cms\subject_cms\subject_cms\html_templates\site.css", cssFilePath );
+
 
             index.Load( htmlFilePath );
             fillMainInfo();
@@ -38,11 +42,9 @@ namespace subject_cms.Models
                 semestersContainer.ChildNodes.Add ( createSemester ( current ) );
             }
 
-            var links = index.GetElementbyId ( "links" );
-            links.SetAttributeValue ( "rel", "stylesheet" );
-            links.SetAttributeValue ( "type", "text/css" );
-            links.SetAttributeValue ( "href", cssFilePath );
-
+            set_settings( _config );
+            
+            
             index.Save( htmlFilePath );
         }
 
@@ -131,5 +133,71 @@ namespace subject_cms.Models
 
             return node;
         }
+
+        private void set_settings ( AdditionalsConfigurations _config )
+        {
+            //CSS FILE BY DEFAULT
+            if ( string.IsNullOrEmpty( _config.CSSFilePath ) )
+            {
+                File.Copy( @"D:\VS17 Projects\subject_cms\subject_cms\subject_cms\html_templates\site.css", cssFilePath );
+                File.Copy( @"D:\VS17 Projects\subject_cms\subject_cms\subject_cms\html_templates\content\bg5.png", root + @"\bg5.png" );
+                File.Copy( @"D:\VS17 Projects\subject_cms\subject_cms\subject_cms\html_templates\content\header_background.png", root + @"\header_background.png" );
+
+                addCSSLink( cssFilePath );
+            }
+            else
+            {
+                addCSSLink ( _config.CSSFilePath );
+            }
+
+            if ( _config.ScriptFilesPaths != null )
+            {
+                foreach ( string path in _config.ScriptFilesPaths )
+                {
+                    addScript( path );
+                }
+            }
+
+            if ( _config.BackgroundColor != null )
+            {
+                HtmlNode body = index.GetElementbyId( "body" );
+                    body.SetAttributeValue( "style"
+                      , string.Format( "background: rgb({0},{1},{2})"
+                      , _config.BackgroundColor?.R
+                      , _config.BackgroundColor?.G
+                      , _config.BackgroundColor?.B ));
+            }
+
+            if ( _config.HeaderColor != null )
+            {
+                HtmlNode body = index.GetElementbyId( "main-info" );
+                body.SetAttributeValue( "style"
+                  , string.Format( "background: rgb({0},{1},{2})"
+                  , _config.HeaderColor?.R
+                  , _config.HeaderColor?.G
+                  , _config.HeaderColor?.B ));
+            }
+        }
+
+
+        private void addCSSLink ( string _cssFilePath )
+        {
+            HtmlNode links = index.GetElementbyId( HtmlElementID.LINKS_ID );
+            HtmlNode newLink = index.CreateElement( "link" );
+            newLink.SetAttributeValue( "rel", "stylesheet" );
+            newLink.SetAttributeValue( "type", "text/css" );
+            newLink.SetAttributeValue( "href", _cssFilePath );
+            links.ChildNodes.Add( newLink );
+        }
+
+        private void addScript ( string _scriptFilePath )
+        {
+            HtmlNode links = index.GetElementbyId( HtmlElementID.LINKS_ID );
+            HtmlNode newLink = index.CreateElement( "script" );
+            newLink.SetAttributeValue( "type", "text/javascript" );
+            newLink.SetAttributeValue( "src", _scriptFilePath );
+            links.ChildNodes.Add( newLink );
+        }
+
     }
 }

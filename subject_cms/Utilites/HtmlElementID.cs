@@ -21,5 +21,6 @@ namespace subject_cms.Utilites
         public const string LESSON_TYPE_ID = "lesson-type";
         public const string LESSON_LIST_ID = "lesson-list";
         public const string LESSON_HOURS_AMOUNT_ID = "lesson-hours";
+        public const string LINKS_ID = "links";
     }
 }

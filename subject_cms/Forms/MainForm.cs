@@ -130,7 +130,11 @@ namespace subject_cms
             if ( folder.ShowDialog() == DialogResult.Cancel )
                 return;
 
-            HtmlGenerator html = new HtmlGenerator( folder.SelectedPath, subject );
+
+            pageConfiguration config = new pageConfiguration();
+            config.ShowDialog();
+            
+            HtmlGenerator html = new HtmlGenerator( folder.SelectedPath, subject, config.config );
             Messanger.Information ( "File generated successfully!" );
         }
     }
